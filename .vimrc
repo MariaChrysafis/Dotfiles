@@ -1,5 +1,21 @@
 syntax on
+" set background=light
+" colorscheme solarized
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set ruler
+set number
+set relativenumber
+" :hi LineNr guibg=NONE
+" highlight LineNr ctermfg=grey ctermbg=white
+" highlight clear LineNr
+
+
 set omnifunc=syntaxcomplete
+set laststatus=2
+nmap <CR> :w<cr>:!clear;"%:p"<cr>
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -10,12 +26,17 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'lervag/vimtex'
 Plugin 'ycm-core/YouCompleteMe'
+" Plugin 'altercation/vim-colors-solarized'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
 Plugin 'tpope/vim-fugitive'
 Plugin 'gkapfham/vim-vitamin-onec'
 Plugin 'gilgigilgil/anderson.vim'
+Plugin 'itchyny/lightline.vim'
+" Plugin 'romainl/flattened'
+
+" Plugin 'lifepillar/vim-solarized8'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
@@ -48,7 +69,12 @@ filetype plugin indent on    " required
 " Put your non-Plugin stuff after this line
 "
 let g:livepreview_previewer = 'open -a Skim'
+let g:ycm_enable_inlay_hints=1
 autocmd BufNewFile,BufRead *.tex :autocmd TextChanged,TextChangedI <buffer> silent write
 set backspace=indent,eol,start
-colorscheme anderson
+" colorscheme anderson
 set mouse=a
+set background=light
+colorscheme solarized8
+
+highlight clear LineNr
